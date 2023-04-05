@@ -1,9 +1,15 @@
-# Credit Card Processor Frontend
+# Credit Card Processor Backend
 
 ## Usage
 
-**develop**
+**Deploy**
 
 ```
-$ npm start
+$ serverless deploy
+```
+
+**Invoke the function locally.**
+
+```
+serverless invoke local --function healthCheck
 ```
