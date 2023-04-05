@@ -1,0 +1,26 @@
+service: creditcard-processor
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  httpApi:
+    cors: true
+
+functions:
+  healthCheck:
+    handler: src/handler.healthCheck
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+  processCreditCard:
+    handler: src/handler.processCreditCard
+    events:
+      - httpApi:
+          path: /api/processCreditCard
+          method: post
+
+plugins:
+  - serverless-plugin-typescript
